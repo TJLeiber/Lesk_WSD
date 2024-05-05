@@ -56,8 +56,9 @@ def extract_context_words(word_list, target_word, n):
     # Find the index of the target word in the list
     try:
         target_index = word_list.index(target_word)
-    except ValueError:
-        return "Target word not found in the list"
+    except ValueError as e:
+        print(str(e) + ":", "Target word not found in the list")
+        return
 
     # Extract context words
     start_index = max(0, target_index - n)
